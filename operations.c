@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:26:35 by rabbie            #+#    #+#             */
-/*   Updated: 2022/01/21 19:51:19 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/15 22:02:47 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int	sab(int *a)
 	return (0);
 }
 
-int	pab(int **a, int **b, t_size *size, char c)
+void	pab(int **a, int **b, t_size *size, char c)
 {
 	if (c == 'b' && size->sizeb == 0)
-		return (0);
+		return ;
 	if (c == 'a' && size->sizea == 0)
-		return (0);
+		return ;
 	*b = shiftdown(*b, size, c);
 	*b[0] = *a[0];
 	*a = delfirst(*a, size, c);

@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:09:40 by rabbie            #+#    #+#             */
-/*   Updated: 2022/01/27 00:06:47 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/15 21:57:23 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	*create_fict(t_size *size)
 {
 	int	*fict_a;
 	int	i;
-	int	l;
 
 	fict_a = malloc(sizeof(int) * size->sizea);
 	if (!fict_a)
@@ -99,7 +98,7 @@ void	operation(t_size *size, int numOp)
 	}
 }
 
-void	complite_sorting(t_size *size, int ag)
+void	complite_sorting(t_size *size)
 {
 	t_variables	variables;
 
@@ -114,29 +113,29 @@ void	complite_sorting(t_size *size, int ag)
 	{
 		while (variables.l < variables.siz)
 		{
-			if ((size->fic_a[0] >> variables.i) & 1 == 1)
+			if (((size->fic_a[0] >> variables.i) & 1) == 1)
 			{
 				operation(size, 1);
-				printer(ag, size, size->a, size->b);
-				printf("\n");
+				// printer(ag, size, size->a, size->b);
+				// printf("\n");
 			}
 			else
 			{
 				operation(size, 0);
-				printer(ag, size, size->a, size->b);
-				printf("\n");
+				// printer(ag, size, size->a, size->b);
+				// printf("\n");
 			}
 			variables.l++;
 		}
 		while (size->sizeb != 0)
 		{
 			operation(size, 2);
-			printer(ag, size, size->a, size->b);
-			printf("\n");
+			// printer(ag, size, size->a, size->b);
+			// printf("\n");
 		}
 		variables.i++;
 		variables.l = 0;
 	}
-	printer(ag, size, size->a, size->b);
+	// printer(ag, size, size->a, size->b);
 	freemem(size);
 }
