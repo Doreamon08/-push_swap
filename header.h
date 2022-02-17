@@ -6,12 +6,15 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:00:12 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/15 22:06:07 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/17 16:42:33 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
+
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -44,6 +47,8 @@ int		sab(int *a);
 void	pab(int **a, int **b, t_size *size, char c);
 int		rab(int *a, int size);
 int		rrab(int *ab, int size);
+void	ra(t_size *size);
+void	sa(t_size *size);
 void	operation(t_size *size, int numOp);
 int		*shiftdown(int *a, t_size *size, char c);
 int		*delfirst(int *ab, t_size *size, char c);
@@ -53,9 +58,11 @@ int		whattheindex(t_size *size, int i);
 int		*create_fict(t_size *size);
 int		chartonum(char *ch);
 int		*sort(int *a, int size);
+int		issorted(t_size *size);
 int		initarrays(t_size *size, char **ac, int ag);
 void	complite_sorting(t_size *size);
 void	sorting_for_three(t_size *size);
+void	sorting_for_five(t_size *size);
 void	freemem(t_size *size);
 
 #endif

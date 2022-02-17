@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:09:40 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/15 21:57:23 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/17 17:24:21 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,13 @@ void	operation(t_size *size, int numOp)
 		size->sizea++;
 		size->sizeb--;
 		pab(&size->fic_a, &size->fic_b, size, 'a');
-		printf ("pb\n");
+		write(1, "pb\n", 3);
 	}
 	if (numOp == 1)
 	{
 		rab(size->a, size->sizea);
 		rab(size->fic_a, size->sizea);
-		printf ("ra\n");
+		write(1, "ra\n", 3);
 	}
 	if (numOp == 2)
 	{
@@ -94,7 +94,7 @@ void	operation(t_size *size, int numOp)
 		size->sizeb++;
 		size->sizea--;
 		pab(&size->fic_b, &size->fic_a, size, 'b');
-		printf ("pa\n");
+		write(1, "pa\n", 3);
 	}
 }
 
@@ -137,5 +137,4 @@ void	complite_sorting(t_size *size)
 		variables.l = 0;
 	}
 	// printer(ag, size, size->a, size->b);
-	freemem(size);
 }

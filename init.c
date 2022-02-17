@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 22:18:51 by rabbie            #+#    #+#             */
-/*   Updated: 2022/01/26 23:19:00 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/16 16:36:04 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	initarrays(t_size *size, char **ac, int ag)
 	{
 		if (!digit(ac[i]))
 		{
-			printf("Error\n");
+			write(STDERR_FILENO, "Error\n", 6);
 			free(size->a);
 			free(size);
 			return (0);

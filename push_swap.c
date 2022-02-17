@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 15:43:54 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/15 22:44:54 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/17 17:33:40 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	chartonum(char *ch)
 {
-	int	num;
-	int	i;
-	int	sign;
+	long	num;
+	int		i;
+	int		sign;
 
 	sign = 1;
 	i = 0;
@@ -32,7 +32,13 @@ int	chartonum(char *ch)
 		num *= 10;
 		i++;
 	}
-	return (num / 10 * sign);
+	num = num / 10 * sign;
+	if (num < INT_MIN || num > INT_MAX)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		exit(0);
+	}
+	return ((int)num);
 }
 
 int	*sort(int *a, int size)
@@ -77,8 +83,7 @@ int	repit(t_size *size)
 		{
 			if (size->a[i] == size->a[l])
 			{
-				write(1, "Error", 5);
-				write(1, "\n", 1);
+				write(STDERR_FILENO, "Error\n", 6);
 				freemem(size);
 				return (1);
 			}
@@ -114,10 +119,7 @@ int	main(int ag, char **ac)
 	size->sizea = ag - 1;
 	size->sizeb = 0;
 	if (ag == 1)
-	{
-		printf("Error\n");
 		return (1);
-	}
 	if (!initarrays(size, ac, ag))
 		return (1);
 	if (repit(size))
@@ -127,13 +129,26 @@ int	main(int ag, char **ac)
 		freemem(size);
 		return (0);
 	}
+	if (ag == 3)
+	{
+		write(1, "sa\n", 3);
+		return (0);
+	}
 	// printer(ag - 1, size, size->a, size->b);
 	// printf("%d\n", ag);
 	if (ag == 4)
 	{
 		sorting_for_three(size);
+		freemem(size);		
+		return (0);
+	}
+	if (ag == 6)
+	{
+		sorting_for_five(size);
+		freemem(size);
 		return (0);
 	}
 	complite_sorting(size);
+	freemem(size);
 	return (0);
 }
