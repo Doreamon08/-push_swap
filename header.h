@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:00:12 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/17 16:42:33 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/17 23:25:01 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ int		rrab(int *ab, int size);
 void	ra(t_size *size);
 void	sa(t_size *size);
 void	operation(t_size *size, int numOp);
+int		find_word_count(char const *s, char c);
+char	**ft_split(char const *s, char c);
+int		how_much_ints(char **ac);
 int		*shiftdown(int *a, t_size *size, char c);
 int		*delfirst(int *ab, t_size *size, char c);
 

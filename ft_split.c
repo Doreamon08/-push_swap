@@ -6,15 +6,15 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 13:47:24 by rabbie            #+#    #+#             */
-/*   Updated: 2021/10/25 15:07:28 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/17 23:29:36 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "header.h"
 
-size_t	find_word_count(char const *s, char c)
+int	find_word_count(char const *s, char c)
 {
-	size_t	word_count;
+	int		word_count;
 	int		i;
 
 	word_count = 0;
@@ -67,8 +67,8 @@ void	free_words(char **result, int i)
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	size_t	word_count;
-	size_t	i;
+	int		word_count;
+	int		i;
 
 	if (!s)
 		return ((void *)0);
