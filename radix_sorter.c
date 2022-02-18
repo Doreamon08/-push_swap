@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:09:40 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/17 17:24:21 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/18 21:45:54 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,6 @@ int	*create_fict(t_size *size)
 	return (fict_a);
 }
 
-void	freemem(t_size *size)
-{
-	free(size->a);
-	free(size->b);
-	free(size->fic_a);
-	free(size->fic_b);
-	free(size->sorted);
-	free(size);
-}
-
 void	operation(t_size *size, int numOp)
 {
 	if (numOp == 0)
@@ -114,27 +104,14 @@ void	complite_sorting(t_size *size)
 		while (variables.l < variables.siz)
 		{
 			if (((size->fic_a[0] >> variables.i) & 1) == 1)
-			{
 				operation(size, 1);
-				// printer(ag, size, size->a, size->b);
-				// printf("\n");
-			}
 			else
-			{
 				operation(size, 0);
-				// printer(ag, size, size->a, size->b);
-				// printf("\n");
-			}
 			variables.l++;
 		}
 		while (size->sizeb != 0)
-		{
 			operation(size, 2);
-			// printer(ag, size, size->a, size->b);
-			// printf("\n");
-		}
 		variables.i++;
 		variables.l = 0;
 	}
-	// printer(ag, size, size->a, size->b);
 }

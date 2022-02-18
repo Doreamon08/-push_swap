@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_for_three.c                                :+:      :+:    :+:   */
+/*   sorting_for_three_or_five.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:20:18 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/17 17:05:13 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/18 23:07:40 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,29 +58,19 @@ void	sorting_for_five(t_size *size)
 	int	i;
 
 	i = 0;
-	// printer(6, size, size->a, size->b);
 	while (i < 2)
 	{
 		if (size->fic_a[0] == 0 || size->fic_a[0] == 1)
 		{
 			operation(size, 0);
 			i++;
-			// printer(6, size, size->a, size->b);
 		}
 		else
-		{
 			ra(size);
-			// printer(6, size, size->a, size->b);
-		}
 	}
-	// printer(6, size, size->a, size->b);
 	sorting_for_three(size);
-	// printer(6, size, size->a, size->b);
 	operation(size, 2);
-	// printer(6, size, size->a, size->b);
 	operation(size, 2);
-	// printer(6, size, size->a, size->b);
 	if (!issorted(size))
 		sa(size);
-	// printer(6, size, size->a, size->b);
 }

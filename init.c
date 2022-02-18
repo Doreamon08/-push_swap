@@ -6,54 +6,57 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 22:18:51 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/18 01:35:45 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/18 21:56:44 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-char	**if_one_agument(char **ac, char *str);
-
 int	digit(char **ac, char *str)
 {
-	int	i;
-	int	flag;
+	t_variables	variables;
 
-	flag = 1;
-	i = 0;
-	if (str[i] == '-')
-		i++;
-	while (str[i])
+	variables.flag = 1;
+	variables.i = 0;
+	while (str[variables.i])
 	{
-		if (str[i] == '-' || (str[i] == '+'))
+		if (str[variables.i] == '-' || (str[variables.i] == '+'))
 		{
-			i++;
-			if ((str[i] >= 48 && str[i] <= 57)
-				&& !(str[i - 2] >= 48 && str[i - 2] <= 57))
-				i++;
+			if ((str[variables.i + 1] >= 48 && str[variables.i + 1] <= 57)
+				&& !(str[variables.i - 1] >= 48 && str[variables.i - 1] <= 57))
+				variables.i = variables.i + 2;
 			else
 				return (0);
 		}
-		else if (str[i] >= 48 && str[i] <= 57)
-			i++;
-		else if (str[i] == ' ')
+		else if (str[variables.i] >= 48 && str[variables.i] <= 57)
+			variables.i++;
+		else if (str[variables.i] == ' ')
 		{
-			flag = 2;
-			i++;
+			variables.flag = 2;
+			variables.i++;
 		}
 		else
 			return (0);
 	}
-	return (flag);
+	return (variables.flag);
 }
 
-char	**if_one_agument(char **ac, char *str)
+int	if_one_argument(t_size *size, char **ac, int *a, int *i)
 {
-	// char	**new_ac;
-	str = "23\0";
-	while (*ac)
-		printf ("%s\n", *ac++);
-	exit (0);
+	int		l;
+	char	**one_argument;
+
+	l = 0;
+	one_argument = ft_split(ac[*a], ' ');
+	while (one_argument[l])
+	{
+		size->a[*i] = chartonum(one_argument[l]);
+		free(one_argument[l]);
+		l++;
+		*i = *i + 1;
+	}
+	*a = *a + 1;
+	free(one_argument);
 }
 
 int	how_much_ints(char **ac)
@@ -70,52 +73,8 @@ int	how_much_ints(char **ac)
 	return (count_of_ints - 1);
 }
 
-int	initarrays(t_size *size, char **ac, int ag)
+int	initarrays_b(t_size *size)
 {
-	int		i;
-	int		l;
-	int		a;
-	char	**one_argument;
-
-	i = 0;
-	l = 0;
-	a = 1;
-	size->a = malloc(sizeof(int) * ag);
-	if (!size->a)
-		return (0);
-	while (i < ag)
-	{
-		// printf("%s - ac[%d]\n", ac[a], a);
-		if (!digit(ac, ac[a]))
-		{
-			write(STDERR_FILENO, "Error\n", 6);
-			free(size->a);
-			free(size);
-			return (0);
-		}
-		else if (digit(ac, ac[a]) == 2)
-		{
-			one_argument = ft_split(ac[a], ' ');
-			while (one_argument[l])
-			{
-				size->a[i] = chartonum(one_argument[l]);
-				// printf("%d - size->a[%d]\n", size->a[i], i);
-				free(one_argument[l]);
-				l++;
-				i++;
-			}
-			a++;
-			l = 0;
-			free(one_argument);
-		}
-		else
-		{
-			size->a[i] = chartonum(ac[a]);
-			// printf("%d - size->a[%d]\n", size->a[i], i);
-			i++;
-			a++;
-		}
-	}
 	size->b = malloc(sizeof(int));
 	size->sorted = sort(size->a, size->sizea);
 	size->fic_a = create_fict(size);
@@ -123,4 +82,29 @@ int	initarrays(t_size *size, char **ac, int ag)
 	if (!size->b || !size->sorted || !size->fic_a || !size->fic_b)
 		return (0);
 	return (1);
+}
+
+int	initarrays(t_size *size, char **ac, int ag)
+{
+	t_variables	variables;
+
+	variables.i = 0;
+	variables.l = 1;
+	while (variables.i < ag)
+	{
+		if (!digit(ac, ac[variables.l]))
+		{
+			write(STDERR_FILENO, "Error\n", 6);
+			return (0);
+		}
+		else if (digit(ac, ac[variables.l]) == 2)
+			if_one_argument(size, ac, &variables.l, &variables.i);
+		else
+		{
+			size->a[variables.i] = chartonum(ac[variables.l]);
+			variables.i++;
+			variables.l++;
+		}
+	}
+	return (initarrays_b(size));
 }
