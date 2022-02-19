@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 22:18:51 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/18 21:56:44 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/19 23:04:58 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	if_one_argument(t_size *size, char **ac, int *a, int *i)
 	one_argument = ft_split(ac[*a], ' ');
 	while (one_argument[l])
 	{
-		size->a[*i] = chartonum(one_argument[l]);
+		size->a[*i] = chartonum(one_argument[l], size);
 		free(one_argument[l]);
 		l++;
 		*i = *i + 1;
@@ -101,7 +101,7 @@ int	initarrays(t_size *size, char **ac, int ag)
 			if_one_argument(size, ac, &variables.l, &variables.i);
 		else
 		{
-			size->a[variables.i] = chartonum(ac[variables.l]);
+			size->a[variables.i] = chartonum(ac[variables.l], size);
 			variables.i++;
 			variables.l++;
 		}

@@ -6,12 +6,25 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:23:59 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/19 19:51:26 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/19 23:50:09 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-#include <stdio.h>
+
+int	inits_and_errors_for_checker(t_size *size, char **ac, int ag)
+{
+	int	count_ints;
+
+	count_ints = 0;
+	count_ints = how_much_ints(ac);
+	size->sizea = count_ints;
+	size->sizeb = 0;
+	size->a = malloc(sizeof(int) * count_ints);
+	if (!size->a || !initarrays(size, ac, count_ints) || repit(size))
+		return (0);
+	return (count_ints);
+}
 
 int	main(int ag, char **ac)
 {
@@ -22,7 +35,7 @@ int	main(int ag, char **ac)
 	size = malloc(sizeof(t_size));
 	if (!size || ag == 0)
 		return (0);
-	count_ints = inits_and_errors(size, ac, ag);
+	count_ints = inits_and_errors_for_checker(size, ac, ag);
 	if (!count_ints)
 	{
 		freemem(size);

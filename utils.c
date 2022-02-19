@@ -6,23 +6,22 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 17:26:29 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/19 22:38:01 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/19 23:25:00 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 #include <stdio.h>
 
-int	ft_strlen(char *ch)
+void	mini_freemem(t_size *size)
 {
-	int	i;
-
-	i = 0;
-	while (ch[i])
-		i++;
-	return (i);
+	write(STDERR_FILENO, "Error\n", 6);
+	free(size->a);
+	free(size);
+	exit (0);
 }
-int	chartonum(char *ch)
+
+int	chartonum(char *ch, t_size *size)
 {
 	t_variables	variables;
 
@@ -36,19 +35,16 @@ int	chartonum(char *ch)
 	}
 	else if (ch[variables.i] == '+')
 		variables.i++;
-	while (ch[variables.i])
+	while (variables.i < (int)ft_strlen(ch))
 	{
 		variables.num += (ch[variables.i] - 48) % 10;
-		variables.num *= 10;
+		if (variables.i != (int)ft_strlen(ch) - 1)
+			variables.num *= 10;
 		variables.i++;
 	}
-	variables.num = variables.num / 10 * variables.sign;
-	printf("%lld\n", variables.num);
+	variables.num = variables.num * variables.sign;
 	if (variables.num < INT_MIN || variables.num > INT_MAX)
-	{
-		write(STDERR_FILENO, "Error\n", 6);
-		exit(0);
-	}
+		mini_freemem(size);
 	return ((int)variables.num);
 }
 

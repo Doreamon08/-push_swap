@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:00:12 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/19 22:29:42 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/19 23:04:20 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_variables
 	int		i;
 	int		l;
 	int		sign;
-	int64_t double	num;
+	int64_t num;
 	int		flag;
 }				t_variables;
 
@@ -63,7 +63,7 @@ int		*delfirst(int *ab, t_size *size, char c);
 int		*copyar(int	*ar, int size);
 int		whattheindex(t_size *size, int i);
 int		*create_fict(t_size *size);
-int		chartonum(char *ch);
+int		chartonum(char *ch, t_size *size);
 int		*sort(int *a, int size);
 int		issorted(t_size *size);
 int		repit(t_size *size);
