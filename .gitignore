@@ -2,3 +2,4 @@ lib
 .vscode
 header.h.gch
 *.o
+/push_swap_tester1

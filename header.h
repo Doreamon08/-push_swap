@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:00:12 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/18 21:06:47 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/19 22:29:42 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
+# include "gnl/get_next_line.h"
 
 typedef struct s_size
 {
@@ -40,7 +40,7 @@ typedef struct s_variables
 	int		i;
 	int		l;
 	int		sign;
-	long	num;
+	int64_t double	num;
 	int		flag;
 }				t_variables;
 

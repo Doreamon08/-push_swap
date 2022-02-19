@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    tester.sh                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lmartins <lmartins@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/04 16:53:09 by lfrasson          #+#    #+#              #
-#    Updated: 2021/09/10 08:48:44 by lmartins         ###   ########.fr        #
+#    Updated: 2022/02/19 19:27:31 by rabbie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

@@ -1,4 +1,5 @@
 #include "header.h"
+#include <stdio.h>
 
 int	printer(int sizeAg, t_size *size, int *a, int *b)
 {
