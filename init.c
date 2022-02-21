@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 22:18:51 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/20 00:17:51 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/21 18:02:48 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,7 @@ int	initarrays(t_size *size, char **ac, int ag)
 	while (variables.i < ag)
 	{
 		if (!digit(ac[variables.l]))
-		{
-			write(STDERR_FILENO, "Error\n", 6);
-			return (0);
-		}
+			mini_freemem(size);
 		else if (digit(ac[variables.l]) == 2)
 			if_one_argument(size, ac, &variables.l, &variables.i);
 		else

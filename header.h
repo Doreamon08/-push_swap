@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:00:12 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/21 16:29:36 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/21 18:01:29 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	complite_sorting(t_size *size);
 void	sorting_for_three(t_size *size);
 void	sorting_for_five(t_size *size);
 void	freemem(t_size *size);
+void	mini_freemem(t_size *size);
 
 int		inits_and_errors_for_checker(t_size *size, char **ac);
 int		what_the_op_two(t_size *size, char *op);
