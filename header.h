@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:00:12 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/19 23:04:20 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/21 03:16:19 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_variables
 	int		i;
 	int		l;
 	int		sign;
-	int64_t num;
+	int64_t	num;
 	int		flag;
 }				t_variables;
 
@@ -67,11 +67,17 @@ int		chartonum(char *ch, t_size *size);
 int		*sort(int *a, int size);
 int		issorted(t_size *size);
 int		repit(t_size *size);
-int		inits_and_errors(t_size *size, char **ac, int ag);
+int		inits_and_errors(t_size *size, char **ac);
 int		initarrays(t_size *size, char **ac, int ag);
 void	complite_sorting(t_size *size);
 void	sorting_for_three(t_size *size);
 void	sorting_for_five(t_size *size);
 void	freemem(t_size *size);
+
+int		inits_and_errors_for_checker(t_size *size, char **ac);
+int		what_the_op_two(t_size *size, char *op);
+int		what_the_op(t_size *size, char *op);
+t_size	*init_for_checker(int ag, char **ac);
+int		free_for_checker(t_size *size);
 
 #endif

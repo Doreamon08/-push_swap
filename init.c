@@ -6,13 +6,13 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 22:18:51 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/19 23:04:58 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/20 00:17:51 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	digit(char **ac, char *str)
+int	digit(char *str)
 {
 	t_variables	variables;
 
@@ -41,7 +41,7 @@ int	digit(char **ac, char *str)
 	return (variables.flag);
 }
 
-int	if_one_argument(t_size *size, char **ac, int *a, int *i)
+void	if_one_argument(t_size *size, char **ac, int *a, int *i)
 {
 	int		l;
 	char	**one_argument;
@@ -92,12 +92,12 @@ int	initarrays(t_size *size, char **ac, int ag)
 	variables.l = 1;
 	while (variables.i < ag)
 	{
-		if (!digit(ac, ac[variables.l]))
+		if (!digit(ac[variables.l]))
 		{
 			write(STDERR_FILENO, "Error\n", 6);
 			return (0);
 		}
-		else if (digit(ac, ac[variables.l]) == 2)
+		else if (digit(ac[variables.l]) == 2)
 			if_one_argument(size, ac, &variables.l, &variables.i);
 		else
 		{

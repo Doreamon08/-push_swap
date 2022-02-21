@@ -6,7 +6,7 @@
 #    By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/04 16:53:09 by lfrasson          #+#    #+#              #
-#    Updated: 2022/02/19 19:27:31 by rabbie           ###   ########.fr        #
+#    Updated: 2022/02/20 01:30:02 by rabbie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ fi
 
 if [ "$(eval uname)" == "Linux" ]
 then
-	CHECKER=./checker_linux
+	CHECKER=./checker
 else
 	CHECKER=./checker
 fi

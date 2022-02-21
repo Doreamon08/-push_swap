@@ -6,13 +6,13 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 20:12:04 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/18 21:53:07 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/20 00:18:24 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	inits_and_errors(t_size *size, char **ac, int ag)
+int	inits_and_errors(t_size *size, char **ac)
 {
 	int	count_ints;
 

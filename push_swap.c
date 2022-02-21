@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 15:43:54 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/19 17:27:03 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/20 00:28:02 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ag, char **ac)
 	size = malloc(sizeof(t_size));
 	if (!size || ag == 0)
 		return (0);
-	count_ints = inits_and_errors(size, ac, ag);
+	count_ints = inits_and_errors(size, ac);
 	if (!count_ints)
 	{
 		freemem(size);

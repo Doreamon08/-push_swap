@@ -6,7 +6,7 @@
 #    By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 20:57:13 by rabbie            #+#    #+#              #
-#    Updated: 2022/02/20 00:14:58 by rabbie           ###   ########.fr        #
+#    Updated: 2022/02/21 03:15:23 by rabbie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS = push_swap.c\
        helpers_for_operations.c\
        sorting_for_three_or_five.c\
        inits_and_errors.c\
+	   gnl/get_next_line_utils.c\
        ft_split.c\
        utils.c
 
@@ -35,14 +36,14 @@ SRCS_B = checker.c\
        	radix_sorter.c\
 		gnl/get_next_line.c\
 		gnl/get_next_line_utils.c\
-		gnl/get_nextline.h\
+		checker_utils.c\
        	utils.c
               
 HEADER = header.h
 
-OBJ = $(SRCS:%.c=%.o)
+OBJ = $(SRCS:.c=.o)
 
-OBJ_B $(SRCS_B:%.c=%.o)
+OBJ_B = $(SRCS_B:%.c=%.o)
 
 CC = gcc
 
@@ -52,11 +53,13 @@ CFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) $(HEADER)\
-       $(CC) $(CFLAGS) $(OBJ) $(NAME)
+$(NAME) : $(OBJ)\
+    # $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-bonus : $(NAME_BONUS)
-		$(CC) $(CFLAGS) $(OBJ_B) $(NAME_BONUS)
+bonus : $(NAME_BONUS)\
+		# $(CC) $(CFLAGS) $(OBJ_B) $(NAME_BONUS)
+
+$(NAME_BONUS) : $(OBJ_B)
 
 clean :
 	rm -f $(OBJ) $(OBJ_B)
@@ -64,4 +67,4 @@ clean :
 fclean : clean
 	$(RM) $(NAME)
 
-re : fclean all	
+re : fclean all
