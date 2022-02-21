@@ -6,11 +6,12 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:09:40 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/18 21:45:54 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/21 16:15:11 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+#include <stdio.h>
 
 int	*copyar(int	*ar, int size)
 {
