@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:20:18 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/18 23:07:40 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/21 16:30:24 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	sa(t_size *size)
 {
-	sab(size->fic_a);
-	sab(size->a);
+	sab(size->fic_a, size->sizea);
+	sab(size->a, size->sizea);
 	write(1, "sa\n", 3);
 }
 

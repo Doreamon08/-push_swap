@@ -6,7 +6,7 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:00:12 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/21 16:04:47 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/21 16:29:36 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_variables
 
 int		printer(int sizeAg, t_size *size, int *a, int *b);
 
-int		sab(int *a);
+int		sab(int *a, int size_of_ar);
 void	pab(int **a, int **b, t_size *size, char c);
 int		rab(int *a, int size);
 int		rrab(int *ab, int size);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_units.c                                    :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 03:11:47 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/21 03:13:06 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/21 16:32:03 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,13 @@ int	what_the_op_two(t_size *size, char *op)
 int	what_the_op(t_size *size, char *op)
 {
 	if (op[0] == 's' && op[1] == 'a' && op[2] == '\n')
-		sab(size->a);
+		sab(size->a, size->sizea);
 	else if (op[0] == 's' && op[1] == 'b' && op[2] == '\n')
-		sab(size->b);
+		sab(size->b, size->sizeb);
 	else if (op[0] == 's' && op[1] == 's' && op[2] == '\n')
 	{
-		sab(size->a);
-		sab(size->b);
+		sab(size->a, size->sizea);
+		sab(size->b, size->sizeb);
 	}
 	else if (op[0] == 'p' && op[1] == 'a' && op[2] == '\n')
 		pab(&size->b, &size->a, size, 'b');

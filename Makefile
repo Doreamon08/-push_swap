@@ -6,7 +6,7 @@
 #    By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 20:57:13 by rabbie            #+#    #+#              #
-#    Updated: 2022/02/21 16:14:43 by rabbie           ###   ########.fr        #
+#    Updated: 2022/02/21 17:36:09 by rabbie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ SRCS = push_swap.c\
 
 SRCS_B = checker.c\
 		init.c\
-       	radix_sorter.c\
        	operations.c\
        	helpers_for_operations.c\
        	sorting_for_three_or_five.c\
@@ -53,18 +52,18 @@ CFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)\
-    # $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME) : $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-bonus : $(NAME_BONUS)\
-		# $(CC) $(CFLAGS) $(OBJ_B) $(NAME_BONUS)
+bonus : $(NAME_BONUS)
 
 $(NAME_BONUS) : $(OBJ_B)
+	$(CC) $(CFLAGS) $(OBJ_B) -o $(NAME_BONUS)
 
 clean :
 	rm -f $(OBJ) $(OBJ_B)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAME_BONUS)
 
 re : fclean all

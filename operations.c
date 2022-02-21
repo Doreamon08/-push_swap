@@ -6,17 +6,17 @@
 /*   By: rabbie <rabbie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:26:35 by rabbie            #+#    #+#             */
-/*   Updated: 2022/02/17 16:49:17 by rabbie           ###   ########.fr       */
+/*   Updated: 2022/02/21 16:33:45 by rabbie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	sab(int *a)
+int	sab(int *a, int size_of_ar)
 {
 	int	temp;
 
-	if (!a)
+	if (!a || size_of_ar <= 1)
 		return (0);
 	temp = a[0];
 	a[0] = a[1];
